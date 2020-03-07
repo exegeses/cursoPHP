@@ -17,7 +17,14 @@
      */
     function dividir( $dividendo, $divisor )
     {
-        $resultado = $dividendo/$divisor;
-        return $resultado;
+        if( $divisor==0 ){
+            return 'el divisar no puede ser 0';
+        }
+        if( is_numeric($dividendo) && is_numeric($divisor) && $divisor != 0  ){
+            $resultado = $dividendo/$divisor;
+            return $resultado;
+        }
+        return 'Debe utilizar números';
+
     }
 

@@ -14,6 +14,14 @@
     <?php
         echo duplicar(333);
     ?>
+    <h2>dividir</h2>
+    <?php
+        echo dividir(280,20);
+    ?>
+    <br>
+    <?php
+        echo dividir('pera',20);
+    ?>
 
 </body>
 </html>
