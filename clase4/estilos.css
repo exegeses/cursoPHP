@@ -1,0 +1,23 @@
+body{
+    background-color: #c9c9c9;
+    color: #666;
+    font-family: helvetica;
+}
+main{
+    width: 980px;
+    margin: auto;
+}
+    article{
+        width: 300px;
+        display: inline-block;
+        border: 1px solid #aaa;
+        padding: 3px;
+        margin: 5px;
+    }
+    article .precio{
+        font-weight: 900;
+        color: #051;
+        font-size: 1.2em;
+    }
+
+
