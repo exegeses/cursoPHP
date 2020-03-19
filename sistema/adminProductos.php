@@ -1,15 +1,15 @@
 <?php
 
     require 'funciones/conexion.php';
-    require 'funciones/marcas.php';
-    $marcas = listarMarcas();
+    require 'funciones/productos.php';
+    $productos = listarProductos();
 
 	include 'includes/header.html';
 	include 'includes/nav.php';  
 ?>
 
     <main class="container">
-        <h1>Panel de administración de marcas</h1>
+        <h1>Panel de administración de productos</h1>
 
         <a href="admin.php" class="btn btn-outline-secondary mb-3">
             Volver a dashboard
@@ -18,8 +18,12 @@
         <table class="table table-bordered table-striped table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
                     <th>Marca</th>
+                    <th>Categoría</th>
+                    <th>Presentación</th>
+                    <th>Imagen</th>
                     <th colspan="2">
                         <a href="" class="btn btn-dark">
                             Agregar
@@ -29,11 +33,15 @@
             </thead>
             <tbody>
 <?php
-            while ( $marca = mysqli_fetch_assoc($marcas) ) {
+        while ( $producto = mysqli_fetch_assoc($productos) ){
 ?>
                 <tr>
-                    <td><?php echo $marca['idMarca']; ?></td>
-                    <td><?= $marca['mkNombre']; ?></td>
+                    <td><?= $producto['prdNombre'] ?></td>
+                    <td><?= $producto['prdPrecio'] ?></td>
+                    <td><?= $producto['idMarca'] ?></td>
+                    <td><?= $producto['idCategoria'] ?></td>
+                    <td><?= $producto['prdPresentacion'] ?></td>
+                    <td><?= $producto['prdImagen'] ?></td>
                     <td>
                         <a href="" class="btn btn-outline-secondary">
                             Modificar
@@ -46,7 +54,7 @@
                     </td>
                 </tr>
 <?php
-            }
+        }
 ?>
             </tbody>
         </table>
