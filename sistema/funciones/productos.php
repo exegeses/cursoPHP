@@ -13,12 +13,12 @@
         $link = conectar();
         $sql = "SELECT 
                         idProducto, prdNombre, prdPrecio,
-                        idMarca, idCategoria,
+                        p.idMarca, mkNombre, p.idCategoria, catNombre, 
                         prdPresentacion, prdStock,
                         prdImagen
-                        
-                    FROM
-                        productos";
+                    FROM productos p, marcas m, categorias c
+                    WHERE m.idMarca = p.idMarca
+                    AND c.idCategoria = p.idCategoria";
         $resultado = mysqli_query($link, $sql);
         return $resultado;
     }
