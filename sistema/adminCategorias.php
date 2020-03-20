@@ -21,7 +21,7 @@
                     <th>Id</th>
                     <th>categoría</th>
                     <th colspan="2">
-                        <a href="" class="btn btn-dark">
+                        <a href="formAgregarCategoria.php" class="btn btn-dark">
                             Agregar
                         </a>
                     </th>
