@@ -10,7 +10,7 @@
             <form action="agregarCategoria.php" method="post">
                 Categoría:
                 <br>
-                <input type="text" name="catNombre" class="form-control">
+                <input type="text" name="catNombre" class="form-control" required>
                 <br>
                 <button class="btn btn-dark">Agregar categoría</button>
                 <a href="adminCategorias.php" class="btn btn-outline-secondary">
