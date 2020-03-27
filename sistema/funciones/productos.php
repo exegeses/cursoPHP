@@ -19,7 +19,8 @@
                     FROM productos p, marcas m, categorias c
                     WHERE m.idMarca = p.idMarca
                     AND c.idCategoria = p.idCategoria";
-        $resultado = mysqli_query($link, $sql);
+        $resultado = mysqli_query($link, $sql)
+                        or die( mysqli_error($link) );
         return $resultado;
     }
 
