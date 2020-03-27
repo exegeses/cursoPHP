@@ -10,10 +10,10 @@
 
     <main class="container">
 
-        <h1>Alta de un nuevo producto</h1>
+        <h1>Modificación de un producto</h1>
 
         <div class="alert alert-secondary p-3">
-            <form action="agregarProducto.php" method="post" enctype="multipart/form-data">
+            <form action="modificarProducto.php" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="prdNombre">Nombre del Producto</label>
@@ -71,7 +71,7 @@
                     <input type="file" name="prdImagen" class="form-control-file" id="prdImagen">
                 </div>
 
-                <button class="btn btn-dark">Agregar producto</button>
+                <button class="btn btn-dark">Modificar producto</button>
                 <a href="adminProductos.php" class="btn btn-outline-secondary">
                     Volver a panel de productos
                 </a>

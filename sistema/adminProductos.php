@@ -43,7 +43,7 @@
                     <td><?= $producto['prdPresentacion'] ?></td>
                     <td><img src="productos/<?= $producto['prdImagen'] ?>" class="img-thumbnail"></td>
                     <td>
-                        <a href="" class="btn btn-outline-secondary">
+                        <a href="formModificarProducto.php?idProducto=<?= $producto['idProducto'] ?>" class="btn btn-outline-secondary">
                             Modificar
                         </a>
                     </td>
@@ -62,6 +62,7 @@
         <a href="admin.php" class="btn btn-outline-secondary mb-3">
             Volver a dashboard
         </a>
+
 
     </main>
 
