@@ -2,8 +2,11 @@
     require 'funciones/conexion.php';
     require 'funciones/marcas.php';
     require 'funciones/categorias.php';
+    require 'funciones/productos.php';
     $marcas = listarMarcas();
     $categorias = listarCategorias();
+    $producto = verProductoPorID( $_GET['idProducto'] );
+
 	include 'includes/header.html';
 	include 'includes/nav.php';  
 ?>
@@ -17,7 +20,7 @@
 
                 <div class="form-group">
                     <label for="prdNombre">Nombre del Producto</label>
-                    <input type="text" name="prdNombre" class="form-control" id="prdNombre" required>
+                    <input type="text" name="prdNombre" value="<?= $producto['prdNombre']; ?>" class="form-control" id="prdNombre" required>
                 </div>
 
                 <label for="prdPrecio">Precio del Producto</label>
@@ -25,13 +28,13 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text">$</div>
                     </div>
-                    <input type="number" name="prdPrecio" class="form-control" id="prdPrecio" min="0" step="0.01" required>
+                    <input type="number" name="prdPrecio" value="<?= $producto['prdPrecio'] ?>" class="form-control" id="prdPrecio" min="0" step="0.01" required>
                 </div>
 
                 <div class="form-group">
                     <label for="idMarca">Marca</label>
                     <select class="form-control" name="idMarca" id="idMarca" required>
-                        <option value="">Seleccione una marca</option>
+                        <option value="<?= $producto['idMarca'] ?>"><?= $producto['mkNombre'] ?></option>
 <?php
                 while ( $marca = mysqli_fetch_assoc($marcas) ){
 ?>
@@ -45,7 +48,7 @@
                 <div class="form-group">
                     <label for="idCategoria">Categoría</label>
                     <select class="form-control" name="idCategoria" id="idCategoria" required>
-                        <option value="">Seleccione una categoría</option>
+                        <option value="<?= $producto['idCategoria'] ?>"><?= $producto['catNombre'] ?></option>
 <?php
                 while ( $categoria = mysqli_fetch_assoc($categorias) ) {
 ?>
@@ -58,19 +61,20 @@
 
                 <div class="form-group">
                     <label for="prdPresentacion">Presentación del Producto</label>
-                    <textarea name="prdPresentacion" class="form-control" id="prdPresentacion" required></textarea>
+                    <textarea name="prdPresentacion" class="form-control" id="prdPresentacion" required><?= $producto['prdPresentacion'] ?></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="prdStock">Stock del Producto</label>
-                    <input type="number" name="prdStock" class="form-control" id="prdStock" min="0" required>
+                    <input type="number" name="prdStock" value="<?= $producto['prdStock'] ?>" class="form-control" id="prdStock" min="0" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="prdImagen">Imagen del Producto</label>
+                    <label for="prdImagen">Imagen del Producto</label> <br>
+                    <img src="productos/<?= $producto['prdImagen'] ?>" class="img-thumbnail"> <br>
                     <input type="file" name="prdImagen" class="form-control-file" id="prdImagen">
                 </div>
-
+                <input type="hidden" name="idProducto" value="<?= $producto['idProducto'] ?>">
                 <button class="btn btn-dark">Modificar producto</button>
                 <a href="adminProductos.php" class="btn btn-outline-secondary">
                     Volver a panel de productos

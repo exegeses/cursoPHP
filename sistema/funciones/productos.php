@@ -70,3 +70,47 @@
     }
 
 
+    function verProductoPorID($idProducto){
+        $link = conectar();
+        $sql = "SELECT 
+                        idProducto, prdNombre, prdPrecio,
+                        p.idMarca, mkNombre, p.idCategoria, catNombre, 
+                        prdPresentacion, prdStock,
+                        prdImagen
+                    FROM productos p, marcas m, categorias c
+                    WHERE m.idMarca = p.idMarca
+                    AND c.idCategoria = p.idCategoria
+                    AND idProducto = ".$idProducto;
+        $resultado = mysqli_query( $link, $sql )
+                            or die( mysqli_error($link) );
+        $producto = mysqli_fetch_assoc($resultado);
+        return $producto;
+    }
+
+
+    function modificarProducto()
+    {
+        $prdNombre = $_POST['prdNombre'];
+        $prdPrecio = $_POST['prdPrecio'];
+        $idMarca = $_POST['idMarca'];
+        $idCategoria = $_POST['idCategoria'];
+        $prdPresentacion = $_POST['prdPresentacion'];
+        $prdStock = $_POST['prdStock'];
+        $prdImagen = subirArchivo();
+        $idProducto = $_POST['idProducto'];
+
+        $link = conectar();
+        $sql = "UPDATE productos 
+                    SET
+                        prdNombre = '".$prdNombre."',
+                        prdPrecio = ".$prdPrecio.",
+                        idMarca = ".$idMarca.",
+                        idCategoria = ".$idCategoria.",
+                        prdPresentacion = '".$prdPresentacion."',
+                        prdStock = ".$prdStock.",
+                        prdImagen = '".$prdImagen."'
+                    WHERE idProducto = ".$idProducto;
+
+
+
+    }
