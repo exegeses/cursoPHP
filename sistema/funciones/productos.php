@@ -111,6 +111,7 @@
                         prdImagen = '".$prdImagen."'
                     WHERE idProducto = ".$idProducto;
 
-
-
+        $resultado = mysqli_query( $link, $sql )
+                            or die( mysqli_error($link) );
+        return $resultado;
     }
