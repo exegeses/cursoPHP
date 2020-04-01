@@ -28,9 +28,13 @@
     function subirArchivo()
     {
         $ruta = 'productos/';
-        $prdImagen = 'noDisponible.jpg';
+        $prdImagen = 'noDisponible.jpg'; # en agregar si NO ENVIAN imagen
 
-        if( $_FILES['prdImagen']['error'] == 0 ){
+        if( isset($_POST['imagenAnterior']) ){  # en modificar si existe imagenAnterior
+            $prdImagen = $_POST['imagenAnterior'];
+        }
+
+        if( $_FILES['prdImagen']['error'] == 0 ){ # si ENVIAN uma imagen
             $prdImagen = $_FILES['prdImagen']['name'];
             $temp = $_FILES['prdImagen']['tmp_name'];
 

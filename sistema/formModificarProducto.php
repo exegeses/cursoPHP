@@ -75,6 +75,7 @@
                     <input type="file" name="prdImagen" class="form-control-file" id="prdImagen">
                 </div>
                 <input type="hidden" name="idProducto" value="<?= $producto['idProducto'] ?>">
+                <input type="hidden" name="imagenAnterior" value="<?= $producto['prdImagen'] ?>">
                 <button class="btn btn-dark">Modificar producto</button>
                 <a href="adminProductos.php" class="btn btn-outline-secondary">
                     Volver a panel de productos
