@@ -18,6 +18,9 @@
 ?>
         <div class="alert alert-<?= $clase ?>">
             <?= $mensaje ?>
+            <a href="adminCategorias.php" class="btn btn-outline-secondary mx-2">
+                Volver a panel
+            </a>
         </div>
 
 
