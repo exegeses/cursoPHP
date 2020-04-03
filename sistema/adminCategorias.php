@@ -19,7 +19,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Id</th>
-                    <th>categoría</th>
+                    <th>Categoría</th>
                     <th colspan="2">
                         <a href="formAgregarCategoria.php" class="btn btn-dark">
                             Agregar
@@ -40,7 +40,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="" class="btn btn-outline-secondary">
+                        <a href="formEliminarCategoria.php?idCategoria=<?php echo $categoria['idCategoria']; ?>" class="btn btn-outline-secondary">
                             Eliminar
                         </a>
                     </td>
