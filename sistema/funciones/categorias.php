@@ -27,6 +27,34 @@
     }
 
 
+    /**
+    *  chequear se hay productos de una categoría
+    */
+    function productoPorCategoria()
+    {
+        $idCategoria = $_GET['idCategoria'];
+        $link = conectar();
+        $sql = "SELECT 1 
+                    FROM productos
+                    WHERE idCategoria = ".$idCategoria;
+        $resultado = mysqli_query($link, $sql)
+                            or die( mysqli_error($link) );
+        $cantidad = mysqli_num_rows($resultado);
+        return $cantidad;
+    }
+
+    function verCategoriaPorId()
+    {
+        $idCategoria = $_GET['idCategoria'];
+        $link = conectar();
+        $sql = "SELECT idCategoria, catNombre
+                            FROM categorias
+                        WHERE idCategoria = " . $idCategoria;
+        $resultado = mysqli_query($link, $sql);
+        $categoria = mysqli_fetch_assoc($resultado);
+        return $categoria;
+    }
+
 /**
  * listarCategorias()
  * verCategoriaPorID()
