@@ -55,6 +55,17 @@
         return $categoria;
     }
 
+    function eliminarCategoria()
+    {
+        $idCategoria = $_POST['idCategoria'];
+        $link = conectar();
+        $sql = "DELETE FROM categorias
+				    WHERE idCategoria = ".$idCategoria;
+        $resultado = mysqli_query($link, $sql)
+                            or die(mysqli_error($link)); //control de errores
+        return $resultado;
+    }
+
 /**
  * listarCategorias()
  * verCategoriaPorID()

@@ -33,7 +33,7 @@
             <div class="alert border-danger text-danger col-6 mx-auto">
 
                 Se eliminará la categoría: <span class="lead"><?= $categoria['catNombre']; ?></span>
-                <form action="eliminarCategoria" method="post">
+                <form action="eliminarCategoria.php" method="post">
                     <input type="hidden" name="idCategoria" value="<?= $categoria['idCategoria'] ?>">
                     <button class="btn btn-danger btn-block my-2">
                         Confirmar baja
