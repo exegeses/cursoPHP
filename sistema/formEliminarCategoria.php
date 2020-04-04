@@ -22,7 +22,7 @@
                 No se puede eliminar la categoría seleccionada,
                 ya que tiene productos relacionados.
 
-                <a href="adminCategorias.php" class="btn btn-secondary mx-2">
+                <a href="adminCategorias.php" class="btn btn-outline-secondary btn-block my-2">
                     Volver a panel
                 </a>
             </div>
@@ -32,7 +32,7 @@
 ?>
             <div class="alert border-danger text-danger col-6 mx-auto">
 
-                Se eliminará la categoría: <?= $categoria['catNombre']; ?>
+                Se eliminará la categoría: <span class="lead"><?= $categoria['catNombre']; ?></span>
                 <form action="eliminarCategoria" method="post">
                     <input type="hidden" name="idCategoria" value="<?= $categoria['idCategoria'] ?>">
                     <button class="btn btn-danger btn-block my-2">
@@ -45,6 +45,28 @@
                 </form>
 
             </div>
+
+
+            <script>
+                // ventana sweet alert 2
+
+                Swal.fire({
+                    title: '¿Desea eliminar la categoría seleccionada?',
+                    text: "Esta acción no se puede deshacer",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3C3836',
+                    confirmButtonText: 'Si, la quiero eliminar!',
+                    cancelButtonText: 'No la quiero eliminar'
+                }).then((result) => {
+                    if (!result.value) {
+                        //redirección a admin
+                        window.location = 'adminCategorias.php';
+                    }
+                })
+
+            </script>
 <?php
         }
 ?>
