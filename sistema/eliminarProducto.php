@@ -1,4 +1,7 @@
-<?php  
+<?php
+    require 'funciones/conexion.php';
+    require 'funciones/productos.php';
+    $chequeo = eliminarProducto();
 	include 'includes/header.html';
 	include 'includes/nav.php';  
 ?>
