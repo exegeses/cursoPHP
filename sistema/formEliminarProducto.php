@@ -35,6 +35,8 @@
 
                     <form action="eliminarProducto.php" method="post">
 
+                        <input type="hidden" name="idProducto" value="<?= $producto['idProducto']; ?>">
+
                         <button class="btn btn-danger btn-block py-2">
                             Confirmar Baja
                         </button>
@@ -49,5 +51,27 @@
         </article>
 
     </main>
+
+
+    <script>
+        // ventana sweet alert 2
+
+        Swal.fire({
+            title: '¿Desea eliminar el producto seleccionado?',
+            text: "Esta acción no se puede deshacer",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3C3836',
+            confirmButtonText: 'Si, lo quiero eliminar!',
+            cancelButtonText: 'No lo quiero eliminar'
+        }).then((result) => {
+            if (!result.value) {
+                //redirección a admin
+                window.location = 'adminProductos.php';
+            }
+        })
+
+    </script>
 
 <?php  include 'includes/footer.php';  ?>
