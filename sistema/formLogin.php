@@ -10,10 +10,10 @@
 
             <form action="login.php" method="post">
                 Usuario:<br>
-                <input type="text" name="usuEmail" class="form-control">
+                <input type="email" name="usuEmail" class="form-control" required>
                 <br>
                 Clave:<br>
-                <input type="password" name="usuPass" class="form-control">
+                <input type="password" name="usuPass" class="form-control" required>
                 <br>
                 <button class="btn btn-dark btn-block">ingresar</button>
                 
