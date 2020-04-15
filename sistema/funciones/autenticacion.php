@@ -23,8 +23,8 @@
         else{
             // login ok
             ######## autenticación con sesiones
-            // ??
-
+            //session_start() está en config.php
+            $_SESSION['login'] = 1;
             // redirección a admin
             header( 'location: admin.php' );
         }
