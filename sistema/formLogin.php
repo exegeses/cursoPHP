@@ -24,12 +24,19 @@
 <?php
 
     if ( isset( $_GET['error'] ) ){
-    //$error = $_GET['error'];
+        $error = $_GET['error'];
+        $titulo = 'Error en el login';
+        $leyenda = 'Nombre de usuario usuario y/o contraseña incorrectos';
+        if( $error == 2 ){
+            $titulo = 'Error de ingreso';
+            $leyenda = 'Debe loguearse para ingresar a sistema';
+        }
+
 ?>
         <script>
             Swal.fire(
-                'Error en el login',
-                'Nombre de usuario usuario y/o contraseña incorrectos',
+                '<?= $titulo ?>',
+                '<?= $leyenda ?>',
                 'error'
             )
         </script>
