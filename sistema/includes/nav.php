@@ -8,17 +8,25 @@
         <a class="py-2" href="adminCategorias.php">Categorías</a>
         <a class="py-2" href="adminProductos.php">Productos</a>
         <a class="py-2" href="adminUsuarios.php">Usuarios</a>
-
+<?php
+    if( !isset( $_SESSION['login'] ) ){
+?>
         <button class="btn btn-dark">
             <a href="formLogin.php"><i class="fas fa-sign-in-alt mr-2"></i> Ingresar</a>
         </button>
-        <!--
-                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <a href="#"><i class="fas fa-sign-in-alt"></i> Ingresar</a>
-                        </button>
-                        <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item bg-dark" href="#">Action</a>
-                        </div>
-        -->
+<?php
+    }else{
+?>
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#"><i class="fas fa-sign-out-alt"></i><?= $_SESSION['usuNombre']; ?> <?= $_SESSION['usuApellido']; ?></a>
+        </button>
+        <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item bg-dark" href="logout.php">Salir de sistema</a>
+            <a class="dropdown-item bg-dark" href="#">Action 2</a>
+            <a class="dropdown-item bg-dark" href="#">Action 3</a>
+        </div>
+<?php
+    }
+?>
     </div>
 </nav>
